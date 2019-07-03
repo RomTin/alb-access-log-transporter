@@ -47,6 +47,6 @@ resource "null_resource" "alb_logger" {
   }
 
   provisioner "local-exec" {
-    command = "rm ${data.archive_file.zip_lambda_alb_logger.output_path}"
+    command = "rm -rf ${data.archive_file.zip_lambda_alb_logger.output_path} ${template_dir.alb_logger.destination_dir}"
   }
 }
